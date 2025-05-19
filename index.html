@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site com Barra Lateral Responsiva</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: #f5f5f5;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #242424;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    .sidebar nav a {
+      display: block;
+      color: #bbb;
+      padding: 12px 15px;
+      margin-bottom: 12px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+      font-weight: 500;
+    }
+
+    .sidebar nav a:hover {
+      background-color: #3a3a3a;
+      color: #fff;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 30px;
+      flex-grow: 1;
+    }
+
+    .main-content h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .main-content p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    /* Menu hambúrguer para mobile */
+    .menu-toggle {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #242424;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 18px;
+      z-index: 1000;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        z-index: 999;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">MeuSite</div>
+    <nav>
+      <a href="https://doritus.mmrcoss.tech/" target="_blank">Tarefas SP</a>
+      <a href="speak.html">Speak</a>
+      <a href="redação.html">Redação</a>
+      <a href="khan.html">Khan Academy</a>
+      <a href="https://leiasp.cupiditys.lol/" target="_blank">Leia SP</a>
+      <a href="apostila.html">Apostila</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h1>"      "Bem-vindo ao MeuSite</h1>
+    <p>Este é um exemplo de site com uma barra lateral responsiva.</p>
+    <p>Clique nos itens do menu para navegar entre as seções (links de exemplo).</p>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
